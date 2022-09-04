@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/nx/schemas/workspace-schema.json",
+  "version": 2,
+  "projects": {
+    "employee-management": "apps/employee-management",
+    "employee-management-e2e": "apps/employee-management-e2e"
+  }
+}
