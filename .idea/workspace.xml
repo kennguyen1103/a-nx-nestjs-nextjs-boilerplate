@@ -28,6 +28,8 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "prettierjs.PrettierConfiguration.Package": "/Users/kennguyen/projects/a-nx-nestjs-nextjs-boilerplate/node_modules/prettier",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "ts.external.directory.path": "/Users/kennguyen/projects/a-nx-nestjs-nextjs-boilerplate/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -47,6 +49,7 @@
       <option name="presentableId" value="Default" />
       <updated>1662214004306</updated>
       <workItem from="1662214006037" duration="2967000" />
+      <workItem from="1662257177794" duration="78000" />
     </task>
     <servers />
   </component>
