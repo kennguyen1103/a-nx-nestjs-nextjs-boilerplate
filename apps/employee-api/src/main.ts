@@ -5,7 +5,7 @@ import { AppModule } from "./app/app.module";
 import { EmployeeService } from "./employee/employee.service";
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, { cors: true });
 
   const employeeService = app.get(EmployeeService);
   await employeeService.seedData();
