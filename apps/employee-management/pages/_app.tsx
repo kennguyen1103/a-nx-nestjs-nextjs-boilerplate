@@ -7,6 +7,7 @@ import { CacheProvider } from "@emotion/react";
 import theme from "../src/theme";
 import createEmotionCache from "../src/createEmotionCache";
 import wrapper from "../src/store/configureStore";
+import { ConnectedRouter } from "connected-next-router";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -22,7 +23,9 @@ function MyApp(props) {
       <ThemeProvider theme={theme}>
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
-        <Component {...pageProps} />
+        <ConnectedRouter>
+          <Component {...pageProps} />
+        </ConnectedRouter>
       </ThemeProvider>
     </CacheProvider>
   );

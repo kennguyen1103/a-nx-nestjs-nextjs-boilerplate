@@ -13,6 +13,7 @@ export function* request(path, options) {
     const result = yield call(() =>
       axios.request({
         url: path,
+        ...options,
       })
     );
     return result.data;
@@ -43,7 +44,7 @@ export const get = (path, params = null, headers = {}, opts = null) => {
 export const post = (path, params = null, headers = {}) => {
   const options = {
     method: "post",
-    data: JSON.stringify(params),
+    data: params,
     headers,
   };
   return request(getFullPath(path), options);
@@ -52,7 +53,7 @@ export const post = (path, params = null, headers = {}) => {
 export const patch = (path, params = null, headers = {}) => {
   const options = {
     method: "patch",
-    data: JSON.stringify(params),
+    data: params,
     headers,
   };
   return request(getFullPath(path), options);
@@ -61,7 +62,7 @@ export const patch = (path, params = null, headers = {}) => {
 export const deleteRequest = (path, params = null, headers = {}) => {
   const options = {
     method: "delete",
-    data: JSON.stringify(params),
+    data: params,
     headers,
   };
 

@@ -4,7 +4,7 @@ export interface EmployeeEntity extends InMemoryDBEntity {
   first_name: string;
   last_name: string;
   email: string;
-  phone: string;
+  number: string;
   gender: string;
   photo: string;
 }
