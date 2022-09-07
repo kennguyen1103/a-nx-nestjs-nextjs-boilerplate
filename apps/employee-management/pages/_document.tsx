@@ -7,7 +7,7 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head>{this.props.emotionStyleTags}</Head>
+        <Head>Employee management</Head>
         <body>
           <Main />
           <NextScript />
@@ -27,6 +27,8 @@ MyDocument.getInitialProps = async (ctx) => {
     originalRenderPage({
       enhanceApp: (App) =>
         function EnhanceApp(props) {
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
           return <App emotionCache={cache} {...props} />;
         },
     });
