@@ -3,7 +3,7 @@ import * as Yup from "yup";
 import "yup-phone";
 import { TextField, Container, Button, MenuItem } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { addEmployee } from "../employee-list/action";
+import { addEmployee, editEmployee } from "../employee-list/action";
 
 export const propsForFormik = (formik: FormikProps<any>, name: string, label: string) => {
   const { values, errors, touched, handleBlur, handleChange } = formik;
@@ -17,7 +17,7 @@ export const propsForFormik = (formik: FormikProps<any>, name: string, label: st
     value: values[name],
     onBlur: handleBlur,
     onChange: handleChange,
-    error,
+    error: error !== undefined,
     helperText: error,
   };
 };
@@ -35,7 +35,7 @@ const AddNewEmployee = () => {
       gender: "M",
     },
     onSubmit: async (values) => {
-      dispatch(addEmployee(values));
+      dispatch(editEmployee(values));
     },
     validationSchema: Yup.object().shape({
       first_name: Yup.string()

@@ -1,4 +1,4 @@
-import { EditEmployee } from "../../src/components/edit-employee";
+import { EditEmployee } from "../../../src/components/edit-employee";
 
 const EditEmployeePage = () => {
   return <EditEmployee></EditEmployee>;

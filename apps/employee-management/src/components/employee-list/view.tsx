@@ -8,10 +8,15 @@ export const View = ({ employees }) => {
   const router = useRouter();
 
   const handleClickDeleteEmployee = (id) => {
-    dispatch(deleteEmployee(id));
+    if (confirm("Press a button!")) {
+      dispatch(deleteEmployee(id));
+    }
   };
   const handleClickAddNewEmployee = () => {
     router.push("/employee/add");
+  };
+  const handleClickEditEmployee = (id) => {
+    router.push(`/employee/edit/${id}`);
   };
 
   return (
@@ -40,7 +45,7 @@ export const View = ({ employees }) => {
                 <TableCell>{row.number}</TableCell>
                 <TableCell>{row.gender}</TableCell>
                 <TableCell>
-                  <Button>Edit</Button>
+                  <Button onClick={() => handleClickEditEmployee(row.id)}>Edit</Button>
                   <Button onClick={() => handleClickDeleteEmployee(row.id)}>Delete</Button>
                 </TableCell>
               </TableRow>

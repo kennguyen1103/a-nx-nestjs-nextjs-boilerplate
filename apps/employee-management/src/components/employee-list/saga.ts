@@ -1,5 +1,5 @@
 import { put, takeEvery, call } from "redux-saga/effects";
-import { deleteRequest, get, post } from "../../utils";
+import { deleteRequest, get, post, patch } from "../../utils";
 import { push } from "connected-next-router";
 import {
   loadEmployeeList,
@@ -9,6 +9,9 @@ import {
   deleteEmployeeFail,
   deleteEmployee,
   addEmployee,
+  getEmployeeDetail,
+  editEmployee,
+  getEmployeeDetailSuccess,
 } from "./action";
 
 function* handleLoadEmployeeList() {
@@ -35,7 +38,19 @@ function* handleInsertEmployee({ payload }) {
   yield put(push({ pathname: "/employee/list" }));
 }
 
+function* handleEditEmployee({ payload }) {
+  yield call(patch, `employee`, payload);
+  yield put(push({ pathname: "/employee/list" }));
+}
+
+function* handleGetEmployeeDetail({ payload: id }) {
+  const data = yield call(get, `employee/${id}`);
+  yield put(getEmployeeDetailSuccess({ data }));
+}
+
 export default function* saga() {
+  yield takeEvery(getEmployeeDetail, handleGetEmployeeDetail);
+  yield takeEvery(editEmployee, handleEditEmployee);
   yield takeEvery(addEmployee, handleInsertEmployee);
   yield takeEvery(deleteEmployee, handleDeleteEmployee);
   yield takeEvery(loadEmployeeList, handleLoadEmployeeList);
